@@ -33,13 +33,9 @@ emoji_pattern = re.compile("["
 
 
 def twitter_connection():
-
-    config = configparser.ConfigParser()
-    config.read("config.ini")
-
-    api_key = config["twitter"]["api_key"]
-    api_key_secret = config["twitter"]["api_key_secret"]
-    access_token = config["twitter"]["access_token"]
+    api_key = st.secrets["twitter"]["api_key"]
+    api_key_secret = st.secrets["twitter"]["api_key_secret"]
+    access_token = st.secrets["twitter"]["access_token"]
 
     auth = tweepy.OAuthHandler(api_key, api_key_secret)
     api = tweepy.API(auth)
